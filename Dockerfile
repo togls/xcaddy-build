@@ -1,6 +1,4 @@
-ARG CADDY_VERSION=2.5.0
-
-FROM caddy:${CADDY_VERSION}-builder AS builder
+FROM caddy:2.5.0-builder AS builder
 
 RUN xcaddy build \
     --with github.com/caddy-dns/cloudflare \
