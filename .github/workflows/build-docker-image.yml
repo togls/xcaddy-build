@@ -18,14 +18,13 @@ jobs:
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1 
         with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Docker metadata
         id: metadata
         uses: docker/metadata-action@v3
         with:
-          images: ghcr.io/${{ github.repository_owner }}/${{ matrix.bin }}
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.bin }}
       - name: Build and release Docker images
         uses: docker/build-push-action@v2
         with:
