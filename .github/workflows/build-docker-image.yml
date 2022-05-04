@@ -24,7 +24,7 @@ jobs:
         id: metadata
         uses: docker/metadata-action@v3
         with:
-          images: ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.bin }}
+          images: ${{ matrix.bin }}
       - name: Build and release Docker images
         uses: docker/build-push-action@v2
         with:
